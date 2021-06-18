@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-4.3.xsd
+            http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+    <util:list id="config" list-class="java.util.LinkedList">
+        <value>file1</value>
+        <value>file2</value>
+        <value>file3</value>
+    </util:list>
+
+    <util:set id="colours" set-class="java.util.TreeSet">
+        <value>red</value>
+        <value>yellow</value>
+        <value>orange</value>
+        <value>aqua</value>
+    </util:set>
+
+    <util:map id="courses">
+        <entry key="Spring" value="10000"/>
+        <entry key="BSE" value="2000"/>
+        <entry key="DSA" value="2500"/>
+    </util:map>
+
+    <util:properties id="properties">
+        <prop key="A">1</prop>
+        <prop key="B">2</prop>
+        <prop key="C">3</prop>
+    </util:properties>
+
+    <bean id="student" class="SpringDemo.temp.Student">
+        <constructor-arg ref="colours"/>
+        <constructor-arg ref="courses"/>
+        <constructor-arg ref="properties"/>
+    </bean>
+
+    <bean id="feed" class="SpringDemo.temp.FeedService">
+        <constructor-arg ref="config"/>
+    </bean>
+</beans>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--Setter injection Example-->
+    <bean id="a1" class="SpringDemo.exp.Address">
+    <property name="city">
+        <value>Mumbai</value>
+
+    </property>
+    <property name="postalCode">
+        <value>4000064</value>
+    </property>
+</bean>
+<bean id="a2" class="SpringDemo.exp.Address">
+    <property name="city" value="A"/>
+    <property name="postalCode" value="2123"/>
+    </bean>
+
+    <bean id="a3" class="SpringDemo.exp.Address" p:city="Delhi" p:postalCode="1234"/>
+    <!-- List Injection // Collection Injection-->
+<bean id="e1" class="SpringDemo.exp.Employee">
+    <property name="phones">
+        <list>
+            <value>2131</value>
+            <value>21234</value>
+            <value>2342</value>
+        </list>
+    </property>
+    <!--Map injection-->
+    <property name="course">
+        <map>
+            <entry key="Java" value="2 months"/>
+            <entry key="Maven" value="3 months"/>
+        </map>
+    </property>
+    <!--Reference Injection-->
+    <property name="address" ref="a1"/>
+</bean>
+
+    <!-- Example of Constructor injection-->
+    <bean id="a4" class="SpringDemo.exp.Address">
+        <constructor-arg value="Kolkata"/>
+        <constructor-arg value="1234" type="int"/>
+    </bean>
+    <bean id="e3" class="SpringDemo.exp.Employee">
+        <constructor-arg>
+            <list>
+                <value>123</value>
+                <value>234</value>
+                <value>456</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg>
+            <map>
+                <entry key="Java" value="2 m"/>
+                <entry key="Maven" value="3 m"/>
+            </map>
+        </constructor-arg>
+        <constructor-arg ref="a4"/>
+    </bean>
+
+</beans>
