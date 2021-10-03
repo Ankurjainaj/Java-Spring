@@ -9,5 +9,7 @@ import lombok.ToString;
 @ToString
 public class Fruit {
     //@Value("Mango")
-    private String name;
+    public String name;
+    private String type;
+    private String family;
 }
